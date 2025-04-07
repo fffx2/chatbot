@@ -38,3 +38,11 @@ sendBtn.addEventListener('click', async () => {
   chatbox.innerHTML += `<div class="text-left mb-2 text-gray-800">GPT: ${reply}</div>`;
   chatbox.scrollTop = chatbox.scrollHeight;
 });
+
+// 여기서 엔터키 이벤트 추가
+userInput.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    event.preventDefault(); // 폼 제출 같은 기본 동작 방지
+    sendBtn.click(); // 버튼 클릭 이벤트 트리거
+  }
+});
